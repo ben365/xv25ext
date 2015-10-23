@@ -1,0 +1,14 @@
+[Unit]
+Description=XV25 remote command
+
+[Service]
+ExecStart=/usr/bin/gunicorn -b 0.0.0.0:8000 -D --chdir /root/xv25ext/ webcommand:app
+Type=forking
+User=root
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+WorkingDirectory = /root/xv25ext/
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" media="all" href="static/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>XV-25 web remote command</title>
+</head>
+<body>
+<img alt="" src="static/neato-robotics-xv-25.jpg" width="200" height="200">
+<div id="start">
+    <a href="startclean"><img alt="" src="static/startbutton.jpg" width="64" height="64"><span class="btn">Lancer un nettoyage maintenant</span></a>
+</div>
+<div id="sms">
+<span class="btns"> ou envoyer "xv25 go!" par SMS</span>
+</div>
+<form name="input" action="sendschedule" method="post">
+<div id="schedule">
+    <input type="checkbox" name="scheduleenable" value="activated" {{ ScheduleEnable }}> La plannification est activ&eacute;e<br>
+<table style="width:300px">
+<tr>
+  <th>Jour</th>
+  <th>Heure</th>
+  <th>Minute</th>
+  <th>Go !</th>
+</tr>
+<tr>
+  <td>Lundi</td>
+  <td><input type="text" name="lundih" value="{{ lundih }}"></td>
+  <td><input type="text" name="lundim" value="{{ lundim }}"></td>
+  <td><input type="checkbox" name="lundie" value="activated" {{ lundie }}></td>
+</tr>
+<tr>
+  <td>Mardi</td>
+  <td><input type="text" name="mardih" value="{{ mardih }}"></td>
+  <td><input type="text" name="mardim" value="{{ mardim }}"></td>
+  <td><input type="checkbox" name="mardie" value="activated" {{ mardie }}></td>
+</tr>
+<tr>
+  <td>Mercredi</td>
+  <td><input type="text" name="mercredih" value="{{ mercredih }}"></td>
+  <td><input type="text" name="mercredim" value="{{ mercredim }}"></td>
+  <td><input type="checkbox" name="mercredie" value="activated" {{ mercredie }}></td>
+</tr>
+<tr>
+  <td>Jeudi</td>
+  <td><input type="text" name="jeudih" value="{{ jeudih }}"></td>
+  <td><input type="text" name="jeudim" value="{{ jeudim }}"></td>
+  <td><input type="checkbox" name="jeudie" value="activated" {{ jeudie }}></td>
+</tr>
+<tr>
+  <td>Vendredi</td>
+  <td><input type="text" name="vendredih" value="{{ vendredih }}"></td>
+  <td><input type="text" name="vendredim" value="{{ vendredim }}"></td>
+  <td><input type="checkbox" name="vendredie" value="activated" {{ vendredie }}></td>
+</tr>
+<tr>
+  <td>Samedi</td>
+  <td><input type="text" name="samedih" value="{{ samedih }}"></td>
+  <td><input type="text" name="samedim" value="{{ samedim }}"></td>
+  <td><input type="checkbox" name="samedie" value="activated" {{ samedie }}></td>
+</tr>
+<tr>
+  <td>Dimanche</td>
+  <td><input type="text" name="dimancheh" value="{{ dimancheh }}"></td>
+  <td><input type="text" name="dimanchem" value="{{ dimanchem }}"></td>
+  <td><input type="checkbox" name="dimanchee" value="activated" {{ dimanchee }}></td>
+</tr>
+</table>
+ <input type="submit" value="Enregister">
+</div>
+</body>
+</html>
