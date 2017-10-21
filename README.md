@@ -63,10 +63,16 @@ Upload - Uploads new program to the robot.
 ```
 
 Bon maintenant essayons de lancer un nettoyage: 
-`Clean`
+
+```
+Clean
+```
 
  Il se réveille ! mais il ne se passe rien.. On renvoi la commande:
- `Clean`
+ 
+ ```
+ Clean
+ ```
  
 Là j'ai un message d'erreur sur l'écran LCD qui indique “Débranchez mon câble USB qd vs voulez le nettoyage ”
 
@@ -296,11 +302,14 @@ Ensuite on démarre le Raspberry Pi avec la carte connectée en Ethernet sur son
 
 Se connecter en ssh en utilisant mdns: 
 
-`ssh root@alarmpi.local`
+```
+ssh root@alarmpi.local
+```
 
 *Se connecter avec le mot de passe par défaut “root”.*
 
 Installer le wifi avec wpa_supplicant: 
+
 ```
 [root@alarmpi ~]# wpa_passphrase Livebox-XXXX 'makeywifipreviate' > /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 [root@alarmpi ~]# systemctl enable wpa_supplicant@wlan0
@@ -315,6 +324,7 @@ ln -s '/usr/lib/systemd/system/dhcpcd@.service' '/etc/systemd/system/multi-user.
 ### Configurer SSH ###
  
 Nous allons maintenant installer une clé ssh pour ne plus saisir de mot de passe: 
+
 ```
 $ ssh-keygen -t rsa -b 1024
 $ cat ~/.ssh/id_rsa.pub | ssh root@alarmpi.local "mkdir -p ~/.ssh && cat - >> ~/.ssh/authorized_keys"
@@ -337,34 +347,48 @@ __Remarque général__: il s'agit d'une plate-forme de développement, la sécur
 
 Mettre à l'heure avec ntp:
 
-`[root@alarmpi ~]# usr/bin/ntpd -qg -u ntp:ntp`
+```
+[root@alarmpi ~]# usr/bin/ntpd -qg -u ntp:ntp
+```
 
 Vérifier le fuseau horraire:
 
-```[root@alarmpi ~]# timedatectl status | grep Timezone
-Timezone: America/Denver (MST, -0700)```
+```
+[root@alarmpi ~]# timedatectl status | grep Timezone
+Timezone: America/Denver (MST, -0700)
+```
 
 Chercher le fuseau horaire de la France:
 
-```[root@alarmpi ~]# timedatectl list-timezones | grep Paris
-Europe/Paris```
+```
+[root@alarmpi ~]# timedatectl list-timezones | grep Paris
+Europe/Paris
+```
 
 Positionner le bon fuseau:
 
-`[root@alarmpi ~]# timedatectl set-timezone Europe/Paris`
+```
+[root@alarmpi ~]# timedatectl set-timezone Europe/Paris
+```
 
 Vérifier que la date est bonne:
 
-```[root@alarmpi ~]# date
-Wed Feb 12 23:19:51 CET 2014```
+```
+[root@alarmpi ~]# date
+Wed Feb 12 23:19:51 CET 2014
+```
 
 Activer ntpd au démarage:
 
-`[root@alarmpi ~]# systemctl enable ntpd.service`
+```
+[root@alarmpi ~]# systemctl enable ntpd.service
+```
 
 Mise à jour du système
 
-`[root@alarmpi ~]# pacman -Syu`
+```
+[root@alarmpi ~]# pacman -Syu
+```
 
 à exécuter plusieurs fois si nécessaire après reboot (mise à jour kernel ou système de base) jusqu'à obtenir:
 
@@ -385,11 +409,14 @@ Bon il est temps de mettre de la couleur et mes outils préférés pour travaill
 
 Git et Vim d'abord !
 
-`[root@alarmpi ~]# pacman -S git vim`
+```
+[root@alarmpi ~]# pacman -S git vim
+```
 
 Vérifions l'accès à mes pages web à travers SSL avec lynx et les certificats racines:
 
-```[root@alarmpi ~]# pacman -S lynx ca-certificates
+```
+[root@alarmpi ~]# pacman -S lynx ca-certificates
 
 [root@alarmpi ~]# lynx https://systemd.info/wiki
 ```
@@ -398,13 +425,17 @@ Cool ça marche !
 
 maintenant je récupère mes dotfiles:
 
-`[root@alarmpi ~]# git clone https://systemd.info/code/dotfiles/`
+```
+[root@alarmpi ~]# git clone https://systemd.info/code/dotfiles/
+```
 
 avec ses sous modules:
 
-```cd dotfiles
+```
+cd dotfiles
 [root@alarmpi dotfiles]# git submodule init
-[root@alarmpi dotfiles]# git submodule update --recursive```
+[root@alarmpi dotfiles]# git submodule update --recursive
+```
 
 et on crée les raccourcis:
 
@@ -417,23 +448,31 @@ on se reconnecte et chouette de la couleur !
 
 Outils de base pour communication série
 
-`pacman -S minicom`
+```
+pacman -S minicom
+```
 
 Installation de python
 
 Pour piloter le robot nous allons utiliser le langage python, c'est simple, puissant et j'aime bien !
 
-`# pacman -S python python-pip base-devel`
+```
+# pacman -S python python-pip base-devel
+```
 
 Installation de pyserial pour communiquer avec le robot sur le port série (simuler via USB).
 
-`pip install pyserial`
+```
+pip install pyserial
+```
 
 Attention: Si vous n'avez pas mis à l'heure la machine pip fonctionnant via SSL, il ne fonctionnera pas.
 
 Installons maintenant le module d'accès au GPIO du RPI:
 
-`pip install RPi.GPIO`
+```
+pip install RPi.GPIO
+```
 
 ## Codes ##
 
@@ -483,7 +522,7 @@ WorkingDirectory = /root/xv25ext/
 WantedBy=multi-user.target
 ```
 
- La lecture des schedules permet de pré-remplir le formulaire de planification.
+La lecture des schedules permet de pré-remplir le formulaire de planification.
 
 Une action sur le bouton “Enregistrer” va récupérer les planifs et les saisir dans le robot. 
 
