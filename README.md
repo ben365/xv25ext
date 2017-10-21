@@ -235,7 +235,7 @@ Une fois les différents éléments connectés nous pouvons vérifier que ça fo
     quelques secondes plus tard je lance minicom et la commande Clean
  * Le robot attend que je débranche
  * J'ouvre une deuxième session SSH et positionne la sortie du GPIO à “0” pour couper l'alimentation du port USB
- * ~~ Le timer (ou flip/flop) se déclenche, 2-3 secondes plus tard le robot détecte le débranchement de l'USB et démarre le nettoyage.~~
+ * ~~Le timer (ou flip/flop) se déclenche, 2-3 secondes plus tard le robot détecte le débranchement de l'USB et démarre le nettoyage.~~
  * Hourra !!
  
 ## Installation et configuration de Arch Linux sur Raspberry Pi ##
