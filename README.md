@@ -105,7 +105,7 @@ J'ai fait le choix de ne donc pas utiliser de batterie, je commanderais donc le 
 
 ## Régulateur de tension ##
 
-!(lm2596)[https://raw.githubusercontent.com/ben365/xv25ext/master/images/lm2596.jpg]
+![lm2596](https://raw.githubusercontent.com/ben365/xv25ext/master/images/lm2596.jpg)
 
 Je l'avais acheté sur Ebay, à un vendeur en Chine, ces modules sont très bon marché et très pratique. 
  
@@ -124,7 +124,7 @@ Cette broche va en effet nous permettre de couper l'alimentation du Raspberry Pi
  
 ## Auto-extinction du Raspberry Pi ##
 
-** Obsolète, la solution la plus efficace consiste à couper la connexion USB  **
+**Obsolète, la solution la plus efficace consiste à couper la connexion USB**
 
 Pour réaliser cette opération je vais donc utiliser la broche ON/OFF du LM2596. Cette entrée permet de couper le régulateur lorsqu'elle reçoit un état logique “1”. 
 
