@@ -194,7 +194,7 @@ En activant le trigger à la mise sous tension, le RaspBerry Pi ne démarre que 
 
 ### Ajout d'un flip/flop à base de 555 à la place du monostable ###
 
-**Obsolète, la solution la plus efficace consiste à couper la connexion USB **
+**Obsolète, la solution la plus efficace consiste à couper la connexion USB**
 
  Après quelques jours d'essai et d'utilisation, en codant une page web pour faire de la planification à distance je me suis heurté à un autre problème: le RPI doit également être éteint avant qu'un nettoyage planifié se lance.
 
